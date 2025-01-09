@@ -75,7 +75,8 @@ module TestData
     @metadata ||= if ActiveRecord::InternalMetadata.respond_to?(:find_by)
       ActiveRecord::InternalMetadata
     else
-      ActiveRecord::InternalMetadata.new(ActiveRecord::Base.connection)
+      # TODO: detect better Rails 7.2
+      ActiveRecord::InternalMetadata.new(ActiveRecord::Base.connection_pool)
     end
   end
 
