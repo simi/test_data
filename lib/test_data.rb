@@ -72,7 +72,7 @@ module TestData
   end
 
   def self.metadata
-    @metadata ||= if ActiveRecord::InternalMetadata.respond_to?(:find_by)
+    if ActiveRecord::InternalMetadata.respond_to?(:find_by)
       ActiveRecord::InternalMetadata
     else
       # TODO: detect better Rails 7.2

@@ -21,7 +21,7 @@ module TestData
     attr_writer :non_test_data_tables
     def non_test_data_tables
       (@non_test_data_tables + [
-        ActiveRecord::Base.connection.schema_migration.table_name,
+        ActiveRecord::Base.schema_migrations_table_name,
         TestData.metadata.table_name
       ]).uniq
     end
